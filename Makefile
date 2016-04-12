@@ -10,10 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRC		:=	compute.c control.c display.c main.c misc.c
+SRC		:=	compute.c control.c display.c main.c misc.c parse.c
 
 CC		:=	gcc
-NAME	:=	scop
+NAME	:=	wolf3d
 INC		:=	-I./ -I$(HOME)/.brew/include/
 OBJ		:=	$(SRC:.c=.o)
 CFLAGS	:=	`sdl2-config --cflags` -Wall -Wextra #-Werror

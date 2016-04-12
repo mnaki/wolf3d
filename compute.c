@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   compute.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nmohamed <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/04/12 13:26:09 by nmohamed          #+#    #+#             */
+/*   Updated: 2016/04/12 13:26:13 by nmohamed         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "wolf3d.h"
 
 void				compute_camera(int x, t_env *env)
@@ -18,7 +30,7 @@ void				compute_step(t_env *env)
 {
 	if (env->ray_dir.x < 0.0)
 	{
-		env->step.x = - 1.0;
+		env->step.x = -1.0;
 		env->side_dist.x = (env->ray_pos.x - env->map_pos.x)
 		* env->delta_dist.x;
 	}
@@ -30,7 +42,7 @@ void				compute_step(t_env *env)
 	}
 	if (env->ray_dir.y < 0.0)
 	{
-		env->step.y = - 1.0;
+		env->step.y = -1.0;
 		env->side_dist.y = (env->ray_pos.y - env->map_pos.y)
 		* env->delta_dist.y;
 	}

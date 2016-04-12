@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   control.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nmohamed <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/04/12 13:26:26 by nmohamed          #+#    #+#             */
+/*   Updated: 2016/04/12 13:26:26 by nmohamed         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "wolf3d.h"
 
 void				turn(double speed, t_env *env)
@@ -15,7 +27,6 @@ void				turn(double speed, t_env *env)
 
 void				forward(double speed, t_env *env)
 {
-	puts("forward");
 	if (env->tiles[(int)(env->pos.y) * env->conf_height
 		+ (int)(env->pos.x + env->dir.x * speed)] == 0)
 		env->pos.x += env->dir.x * speed;

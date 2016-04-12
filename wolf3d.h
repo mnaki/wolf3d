@@ -1,5 +1,17 @@
-#ifndef WOLF_3D
-# define WOLF_3D
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   wolf3d.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nmohamed <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/04/12 13:30:38 by nmohamed          #+#    #+#             */
+/*   Updated: 2016/04/12 13:30:39 by nmohamed         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef WOLF3D_H
+# define WOLF3D_H
 # include <time.h>
 # include <unistd.h>
 # include <string.h>
@@ -48,7 +60,7 @@ typedef struct		s_env
 	int				conf_width;
 }					t_env;
 
-struct				poubelle
+struct				s_poubelle
 {
 	int				fd;
 	int				num;
@@ -63,7 +75,7 @@ struct				poubelle
 void				print_map(void);
 void				ver_line(int x, double draw_start, double drawend, int cl);
 void				turn(double speed, t_env *env);
-void				update_size(int *arr, struct poubelle *st);
+void				update_size(int *arr, struct s_poubelle *st);
 int					*parse_file(char *filename);
 void				init_conf(int ac, char **av);
 void				init_gl(void);
@@ -78,5 +90,7 @@ void				fatal(char *str);
 void				compute_camera(int x, t_env *env);
 void				compute_step(t_env *env);
 void				compute_map_pos(t_env *env);
+void				ft_memset(void *b, int c, size_t len);
+void				preparse(struct s_poubelle *st, char *filename);
 
 #endif

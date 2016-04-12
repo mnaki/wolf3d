@@ -1,25 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   misc.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nmohamed <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/04/12 13:26:26 by nmohamed          #+#    #+#             */
+/*   Updated: 2016/04/12 13:26:26 by nmohamed         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "wolf3d.h"
-
-void				print_map(void)
-{
-	int		y;
-	int		x;
-
-	y = 0;
-	while (y <= singleton()->conf_height)
-	{
-		printf("%d\t", y+1);
-		x = 0;
-		while (x <= singleton()->conf_width)
-		{
-			printf("%d ",
-			singleton()->tiles[y * singleton()->conf_width + x]);
-			x++;
-		}
-		printf("\n");
-		y++;
-	}
-}
 
 t_env				*singleton(void)
 {
@@ -28,7 +19,7 @@ t_env				*singleton(void)
 
 	if (inited == 0)
 	{
-		memset(&e, 0, sizeof(e));
+		ft_memset(&e, 0, sizeof(e));
 		inited = 1;
 	}
 	return (&e);
@@ -45,6 +36,19 @@ t_vec2				new_vec2(double x, double y)
 
 void				fatal(char *str)
 {
-	printf("error: %s", str);
+	while (*str)
+		write(1, str++, 1);
 	exit(0);
+}
+
+void				ft_memset(void *b, int c, size_t len)
+{
+	size_t		i;
+
+	i = 0;
+	while (i < len)
+	{
+		((unsigned char*)b)[i] = c;
+		i++;
+	}
 }

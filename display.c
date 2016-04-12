@@ -1,23 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   display.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nmohamed <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/04/12 13:26:26 by nmohamed          #+#    #+#             */
+/*   Updated: 2016/04/12 13:26:26 by nmohamed         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "wolf3d.h"
 
 void				ver_line(int x, double draw_start, double drawend, int cl)
 {
 	int				y;
-	// glColor3ub(50 + cl * 50, 50 + cl * 150, 50 + cl * 100);
-	SDL_SetRenderDrawColor(singleton()->ren, 50 + cl * 50, 50 + cl * 150, 50 + cl * 100, 255);
+
+	SDL_SetRenderDrawColor(singleton()->ren,
+	50 + cl * 50, 50 + cl * 150, 50 + cl * 100, 255);
 	y = draw_start;
 	while (y < drawend)
 	{
-		// glVertex2d(x, y);
 		SDL_RenderDrawPoint(singleton()->ren, x, y);
 		y++;
 	}
-	// glColor3ub(150, 150, 150);
 	SDL_SetRenderDrawColor(singleton()->ren, 150, 150, 150, 255);
-	// glVertex2d(x, draw_start);
-	// glVertex2d(x, drawend);
-	// glVertex2d(x, draw_start + 1);
-	// glVertex2d(x, drawend - 1);
 	SDL_RenderDrawPoint(singleton()->ren, x, draw_start);
 	SDL_RenderDrawPoint(singleton()->ren, x, drawend);
 	SDL_RenderDrawPoint(singleton()->ren, x, draw_start + 1);
@@ -32,7 +39,7 @@ void				draw_wall_line(int x, t_env *env)
 	int		color;
 
 	line_height = (int)(env->win_height / env->perp_wall_dist);
-	draw_start = - line_height / 2.0 + env->win_height / 2.0;
+	draw_start = -line_height / 2.0 + env->win_height / 2.0;
 	if (draw_start < 0)
 		draw_start = 0;
 	draw_end = line_height / 2.0 + env->win_height / 2.0;
@@ -69,9 +76,6 @@ void				display(void)
 	int		x;
 
 	env = singleton();
-	// glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-	// glLoadIdentity();
-	// glBegin(GL_POINTS);
 	SDL_RenderClear(env->ren);
 	x = 0;
 	while (x < env->win_width)
@@ -82,8 +86,4 @@ void				display(void)
 		x++;
 	}
 	SDL_RenderPresent(env->ren);
-	// glEnd();
-	// glFlush();
-	// glutPostRedisplay();
-    // puts("TEST");
 }

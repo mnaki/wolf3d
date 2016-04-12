@@ -36,7 +36,7 @@ int					*parse_file(char *filename)
 		}
 	}
 	singleton()->conf_width = st.width;
-	singleton()->conf_height = st.y-1;
+	singleton()->conf_height = st.y;
 	return (arr);
 }
 
@@ -44,9 +44,9 @@ void				init_conf(int ac, char **av)
 {
 	(void)ac;
 	singleton()->tiles = parse_file(av[1]);
-	singleton()->win_width = 800;
-	singleton()->win_height = 600;
-	singleton()->pos = new_vec2(1, 1);
+	singleton()->win_width = 1280;
+	singleton()->win_height = 800;
+	singleton()->pos = new_vec2(2, 2);
 	singleton()->dir = new_vec2(-1, 0);
 	singleton()->plane = new_vec2(0, 0.9);
 }

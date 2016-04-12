@@ -15,6 +15,7 @@ void				turn(double speed, t_env *env)
 
 void				forward(double speed, t_env *env)
 {
+	puts("forward");
 	if (env->tiles[(int)(env->pos.y) * env->conf_height
 		+ (int)(env->pos.x + env->dir.x * speed)] == 0)
 		env->pos.x += env->dir.x * speed;
